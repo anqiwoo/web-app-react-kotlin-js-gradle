@@ -17,6 +17,8 @@ import react.dom.html.ReactHTML.p
 import react.dom.html.ReactHTML.img
 
 val App = FC<Props> {
+    var currentVideo: Video? by useState(null)
+
     // typesafe HTML goes here
     div {
         css {
@@ -32,12 +34,20 @@ val App = FC<Props> {
             }
             VideoList {
                 videos = unwatchedVideos
+                selectedVideo = currentVideo
+                onSelectVideo = { video ->
+                   currentVideo = video
+                }
             }
             h3 {
                 +"Videos watched"
             }
             VideoList {
                 videos = watchedVideos
+                selectedVideo = currentVideo
+                onSelectVideo = { video ->
+                    currentVideo = video
+                }
             }
         }
         div {

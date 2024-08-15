@@ -1,4 +1,5 @@
 import csstype.*
+import csstype.LineStyle.Companion.solid
 import react.*
 import emotion.react.css
 import react.dom.html.ReactHTML.button
@@ -26,6 +27,9 @@ val VideoPlayer = FC<VideoPlayerProps> { props ->
             css {
                 display = Display.block
                 backgroundColor = if (props.isWatchedVideo) NamedColor.orangered else NamedColor.lightgreen
+                borderColor = Color("lightgrey")
+                borderWidth = 2.px
+                margin = Margin(5.px, 0.px)
             }
             onClick = {
                 props.onWatchButtonPressed(props.video)
@@ -34,6 +38,20 @@ val VideoPlayer = FC<VideoPlayerProps> { props ->
                 +"Mark as unwatched"
             } else {
                 +"Mark as watched"
+            }
+        }
+        EmailShareButton {
+            url = props.video.videoUrl
+            EmailIcon {
+                size = 32
+                round = true
+            }
+        }
+        TelegramShareButton {
+            url = props.video.videoUrl
+            TelegramIcon {
+                size = 32
+                round = true
             }
         }
         ReactPlayer {

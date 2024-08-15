@@ -50,17 +50,14 @@ val App = FC<Props> {
                 }
             }
         }
-        div {
-            css {
-                position = Position.absolute
-                top = 10.px
-                right = 10.px
-            }
-            h3 {
-                +"John Doe: Building and breaking things"
-            }
-            img {
-                src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+        /*
+        * The let scope function ensures that
+        * the VideoPlayer component is only added
+        * when state.currentVideo is not null.
+        * */
+        currentVideo?.let { curr ->
+            VideoPlayer {
+                video = curr
             }
         }
     }

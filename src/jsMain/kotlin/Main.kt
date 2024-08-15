@@ -14,6 +14,7 @@ import react.dom.client.createRoot
 import kotlinx.serialization.Serializable
 
 // Keep all video attributes in one place
+@Serializable
 data class Video(
     val id: Int,
     val title: String,

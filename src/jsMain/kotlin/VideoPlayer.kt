@@ -36,8 +36,9 @@ val VideoPlayer = FC<VideoPlayerProps> { props ->
                 +"Mark as watched"
             }
         }
-        img {
-            src = "https://via.placeholder.com/640x360.png?text=Video+Player+Placeholder"
+        ReactPlayer {
+            url = props.video.videoUrl
+            controls = true
         }
     }
 }
